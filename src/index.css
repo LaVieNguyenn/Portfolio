@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+@keyframes floatXY {
+from { transform: translate(calc(var(--dx, 16px) * -1), calc(var(--dy, 18px) * -1)) rotate(calc(var(--rot, 8deg) * -1)); }
+to { transform: translate(var(--dx, 16px), var(--dy, 18px)) rotate(var(--rot, 8deg)); }
+}
+.shape-float { animation: floatXY var(--dur, 22s) ease-in-out infinite alternate; will-change: transform; }
+.snap-container { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; }
+.snap-section { scroll-snap-align: start; }
+}
+
+html { color-scheme: light dark; }
