@@ -20,20 +20,20 @@ export default function Contact() {
           Visit{" "}
           <a
             className="underline"
-            href="https://your-website.example"
+            href="https://www.facebook.com/LaVieNguyen.Hung"
             target="_blank"
             rel="noreferrer"
           >
-            my website
+            my Facebook
           </a>{" "}
           or find me on{" "}
           <a
             className="underline"
-            href="https://bsky.app/profile/yourhandle"
+            href="https://www.linkedin.com/in/lavienguyen0302"
             target="_blank"
             rel="noreferrer"
           >
-            Bluesky
+            LinkedIn
           </a>
         </p>
       </div>

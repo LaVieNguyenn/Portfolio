@@ -1,6 +1,6 @@
-# Portfolio (.NET / React) — React + Vite + Tailwind v4
+# Portfolio (.NET / React) — React + Vite + Tailwind 
 
-Một portfolio cá nhân dành cho DEV **.NET/C#** có thể làm **React/Angular**, tối ưu hiệu năng, giao diện hiện đại và hiệu ứng mượt.
+Một portfolio cá nhân dành cho DEV **IT** có thể làm **React/Angular**, tối ưu hiệu năng, giao diện hiện đại và hiệu ứng mượt.
 
 ## ⚡ Tính năng chính
 
@@ -62,8 +62,6 @@ npm run dev
 # 4) Build
 npm run build && npm run preview
 ```
-
-### `.env.local` (ví dụ)
 
 ## 📄 Giấy phép
 
