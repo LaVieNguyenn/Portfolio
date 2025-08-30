@@ -4,68 +4,103 @@ import Reveal from "../common/Reveal.jsx";
 import FsoftLogo from "../../assets/logos/FSoft_logo.png";
 import LUKGlobalLogo from "../../assets/logos/LUKGlobal_logo.png";
 
-const Item = ({ title, company, time, bullets, logo }) => (
-  <div className="rounded-xl border border-slate-300/60 dark:border-slate-700/60 bg-white/70 dark:bg-white/10 p-6 flex gap-4">
-    {logo && (
-      <img
-        alt="logo"
-        src={logo}
-        className="w-12 h-12 rounded-md object-contain"
-      />
-    )}
-    <div>
-      <h3 className="text-lg font-semibold">
-        {title} <span className="opacity-70">— {company}</span>
-      </h3>
-      <p className="text-sm opacity-70 mb-2">{time}</p>
-      <ul className="list-disc pl-5 space-y-1 text-sm opacity-90">
-        {bullets.map((b, i) => (
-          <li key={i}>{b}</li>
-        ))}
-      </ul>
-    </div>
-  </div>
-);
+const EXP = [
+  {
+    title: ".NET Developer Intern",
+    company: "FPT Software (On-site)",
+    time: "Sep 2024 — Dec 2024",
+    logo: FsoftLogo,
+    bullets: [
+      "Synthesized input/output requirements from SRS to keep scope & acceptance clear",
+      "Contributed features & fixes using .NET tech to deliver efficient, reliable components",
+      "Facilitated weekly Scrum meetings to set priorities & review progress",
+    ],
+  },
+  {
+    title: "Operations Team Member",
+    company: "LUK Global Saigon Campus (HCMC)",
+    time: "Oct 2022 — Jan 2024",
+    logo: LUKGlobalLogo,
+    bullets: [
+      "Managed and operated English activities in a professional environment.",
+      "Coordinated with 15+ international trainers.",
+      "Organized debate/presentation activities to enhance public speaking & critical thinking.",
+    ],
+  },
+];
 
 export default function Experiences() {
   return (
     <section
       id="experiences"
-      className="snap-section relative min-h-screen overflow-hidden bg-white text-slate-900 dark:bg-[#0f1420] dark:text-gray-100"
+      className="snap-section relative min-h-screen overflow-hidden
+                 bg-white text-slate-900 dark:bg-[#0f1420] dark:text-gray-100"
     >
-      <DenseShapes seed={31} count={90} />
-      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 py-20 space-y-6">
+      {/* Shapes nền */}
+      <div className="absolute inset-0 pointer-events-none">
+        <DenseShapes seed={31} count={90} />
+      </div>
+
+      {/* Nội dung */}
+      <div className="max-w-5xl mx-auto px-6 md:px-8 py-20">
         <Reveal>
-          <h2 className="text-4xl font-bold mb-4">Experiences</h2>
+          <h2 className="text-4xl font-bold mb-10">Experiences</h2>
         </Reveal>
 
-        <Reveal>
-          <Item
-            title=".NET Developer Intern"
-            company="FPT Software (On Site)"
-            time="Sep 2024 — Dec 2024"
-            logo={FsoftLogo}
-            bullets={[
-              "Synthesized input/output requirements from SRS to keep scope & acceptance clear",
-              "Contributed features & fixes using .NET tech to deliver efficient, reliable components",
-              "Facilitated weekly Scrum meetings to set priorities & review progress",
-            ]}
-          />
-        </Reveal>
+        <ol
+          className="
+            relative pl-8 space-y-8
+            before:absolute before:left-3 before:top-0 before:bottom-0
+            before:w-px before:bg-slate-300/60 dark:before:bg-slate-700/60
+          "
+          aria-label="Work experience timeline"
+        >
+          {EXP.map((x, i) => (
+            <Reveal key={i}>
+              <li className="relative">
+                {/* Dot timeline */}
+                <span
+                  className="
+                    absolute -left-0.5 top-2 w-4 h-4 rounded-full
+                    bg-cyan-500 ring-4 ring-cyan-500/25
+                  "
+                  aria-hidden="true"
+                />
 
-        <Reveal>
-          <Item
-            title="Operations Team Member"
-            company="LUK Global Saigon Campus (HCMC)"
-            time="Oct 2022 — Jan 2024"
-            logo={LUKGlobalLogo}
-            bullets={[
-              "Operated & managed English activities in a professional environment",
-              "Worked with 15+ international coaches",
-              "Organized student debate/presentation events to build public‑speaking & critical‑thinking",
-            ]}
-          />
-        </Reveal>
+                {/* Card */}
+                <div
+                  className="
+                    rounded-2xl border border-slate-300/60 dark:border-slate-700/60
+                    bg-white/75 dark:bg-white/10 backdrop-blur-md
+                    shadow-lg p-6 flex gap-4
+                  "
+                >
+                  {x.logo && (
+                    <img
+                      alt={`${x.company} logo`}
+                      src={x.logo}
+                      className="w-12 h-12 rounded-md object-contain shrink-0"
+                    />
+                  )}
+
+                  <div>
+                    <h3 className="text-lg font-semibold">
+                      {x.title}{" "}
+                      <span className="opacity-70">— {x.company}</span>
+                    </h3>
+                    <p className="text-sm opacity-70 mb-2">{x.time}</p>
+
+                    <ul className="list-disc pl-5 space-y-1 text-sm opacity-90">
+                      {x.bullets.map((b, idx) => (
+                        <li key={idx}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
       </div>
     </section>
   );
